@@ -229,6 +229,16 @@ fileManager = {
 	},
 	elementToJSON: function (element) {
 		var text = element.attr('text/text');
+
+		bracketPosition = text.search(/\[/);
+		if (bracketPosition >= 0) {
+				//if there are brackets, remove brealines within them
+				beforeBracket = text.substring(0, bracketPosition);
+				afterBracket = text.substring(bracketPosition);
+				afterBracket = afterBracket.replace(/(\r\n|\n|\r)/gm,'');
+				text = beforeBracket + afterBracket
+		}
+
 		text = text.replace(/\n/g, ' ');
 		var result = {
 			'id': element.id,
