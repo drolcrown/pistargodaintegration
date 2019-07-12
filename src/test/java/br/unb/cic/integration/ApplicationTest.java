@@ -29,11 +29,11 @@ public class ApplicationTest {
         return new String(Files.readAllBytes(Paths.get("src/main/resources/testFiles/" + path)));
     }
 
-    @Test
+   /* @Test
     public void contextLoad() throws Exception {
         // Test to start the application
         testCase1();
-    }
+    }*/
 
     @Test
     public void testCase1() throws Exception {
@@ -452,5 +452,100 @@ public class ApplicationTest {
             Assert.assertTrue(true);
         }
     }
-
+    
+    @Test
+    public void GoalOrAndTest() throws Exception {
+        String content = getContent("ORAND.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void TaskOrAndTest() throws Exception {
+        String content = getContent("Task_Or_And.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void GoalRefinedIntoSubgoalTask() throws Exception {
+        String content = getContent("refined_into_subgoal_and_task.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+  
+    @Test
+    public void GoalRefinedIntoMultipleTasks() throws Exception {
+        String content = getContent("goal_refined_into_multiple_tasks.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void GoalNumberOfChildrenAndRtAnnotation() throws Exception {
+        String content = getContent("match_rtannot_and_number_of_children.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void TaskNumberOfChildrenAndRtAnnotation() throws Exception {
+        String content = getContent("match_rtannot_and_number_of_children_tasks.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void ClosingBracketMissing() throws Exception {
+        String content = getContent("closing_bracket_missing.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void OpeningBracketMissing() throws Exception {
+        String content = getContent("opening_bracket_missing.txt");
+        try {
+            mockMvc.perform(post("/prism-dtmc").param("content", content))
+                    .andExpect(status().isOk());
+            Assert.fail();
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
 }

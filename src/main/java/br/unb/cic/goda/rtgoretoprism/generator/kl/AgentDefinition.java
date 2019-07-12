@@ -27,14 +27,53 @@ public class AgentDefinition {
         agentname = NameUtility.adjustName(a.getName());
     }
 
+    public static void checkOrder(String name) {
+    	int i;
+    	boolean valid = false;
+    	String id = name.split("\\:")[0];
+    	//checks if there is a runtime annotation
+    	if(name.indexOf("[") != -1 && name.indexOf("]") != -1) {
+    		int startofRtRegex = name.indexOf("[");
+    		int endofElId = name.indexOf(":");   
+    		for(i=endofElId+1;i<startofRtRegex;i++) {
+    			/*checks if there is at least one letter or digit between the ":"
+    			and the "["  ///// it's assumed here that the first occurrence of
+    			"[" is the start of the runtime annotation*/
+    			if(Character.isLetterOrDigit(name.charAt(i))) {
+    				valid = true;
+    				break;
+    			}
+    		}
+    		if(!valid) {
+    			throw new Error("Label must be in the following order: (G|T)#: description [runtime annotation]. Error found at: " + id);
+    		}
+    		//checks if there is any char or letter after "]"
+    		if(name.indexOf("]")+1 != name.length()) {
+    			throw new Error("There must not be anything written after the runtime annotation. Error found at: " + id);
+    		}
+    	}
+    	else {
+    	//checks the existence of a "[" that is not closed
+    		if(name.indexOf("[") != -1 && name.indexOf("]") == -1) {
+    			throw new Error("Closing bracket is missing. Error found at: " + id);
+    		}
+    		else {
+    			if(name.indexOf("[") == -1 && name.indexOf("]") != -1) {
+        			throw new Error("Open bracket is missing. Error found at: " + id);
+        		}
+    		}
+    	}
+    }
     public static String parseElId(String name) {
+    	checkOrder(name);
         String patternString = "(^[GT]\\d+\\.?\\d*):";
         Pattern pattern = Pattern.compile(patternString);
         java.util.regex.Matcher matcher = pattern.matcher(name);
         if (matcher.find())
             return matcher.group(1);
         else
-            return null;
+        	throw new Error("Label is incorrect.");
+            //return null;
     }
 
     private static String parseRTRegex(String name) {

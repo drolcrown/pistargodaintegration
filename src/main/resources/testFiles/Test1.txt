@@ -50,7 +50,7 @@
         },
         {
           "id": "cd554f56-b93b-4b50-9ed7-c6fb6dfcdb25",
-          "text": "T1.1: um filho [opt(T1.11)}",
+          "text": "T1.1: um filho [opt(T1.11)]",
           "type": "istar.Task",
           "x": 42,
           "y": 380

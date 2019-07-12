@@ -192,6 +192,8 @@ ui.defineInteractions = function() {
         }
     });
 
+    
+
     istar.paper.on('cell:contextmenu', function(cellView, evt, x, y) {
     });
 };
@@ -386,7 +388,12 @@ $('#runPRISMButton').click(function() {
         success: function() {
             window.location.href = 'prism.zip';
         },
-        error: function(){alert("Error!");}
+        //error: //function(){alert("Error!");}
+        error: function (xhr, status, errorThrown) {
+        var jsonResponse = JSON.parse(xhr.responseText);
+        //var err = eval("(" + xhr.responseText + ")");
+        alert(jsonResponse.message);
+        }
     });
 });
 
@@ -401,7 +408,12 @@ $('#runPARAMButton').click(function() {
         success: function() {
             window.location.href = 'param.zip';
         },
-        error: function(){alert("Error!");}
+        error: function (xhr, status, errorThrown) {
+        var jsonResponse = JSON.parse(xhr.responseText);
+        //var err = eval("(" + xhr.responseText + ")");
+        alert(jsonResponse.message);
+
+        }
     });
 });
 
