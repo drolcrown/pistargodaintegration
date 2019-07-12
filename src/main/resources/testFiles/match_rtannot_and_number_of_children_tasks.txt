@@ -1,0 +1,98 @@
+{
+  "actors": [
+    {
+      "id": "651336e5-09da-4d12-ae12-11f19ea9f81f",
+      "text": "Researcher",
+      "type": "istar.Actor",
+      "x": 126,
+      "y": 46,
+      "nodes": [
+        {
+          "id": "533648cf-2df9-41f6-873f-93557f7d07c9",
+          "text": "G0: RootGoal [G1;G2]",
+          "type": "istar.Goal",
+          "x": 347,
+          "y": 67,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "169666a5-7b74-4c27-97ac-dd0738061e96",
+          "text": "G1: goal",
+          "type": "istar.Goal",
+          "x": 276,
+          "y": 166
+        },
+        {
+          "id": "9330e2fd-2664-4a1f-b5be-703450fc14a3",
+          "text": "G2: goal2",
+          "type": "istar.Goal",
+          "x": 427,
+          "y": 166
+        },
+        {
+          "id": "b9cb00fe-8b75-4458-870d-de62f664e5b7",
+          "text": "T1: Task [T1.1;T1.2;T1.2]",
+          "type": "istar.Task",
+          "x": 426,
+          "y": 253
+        },
+        {
+          "id": "d4614db3-7e9b-435a-9194-475730a0d986",
+          "text": "T1.1: Taskfinal1",
+          "type": "istar.Task",
+          "x": 329,
+          "y": 325
+        },
+        {
+          "id": "fe2d63b5-404a-4169-bd25-0d9f7fa9e6ec",
+          "text": "T1.2: Taskfinal2",
+          "type": "istar.Task",
+          "x": 506,
+          "y": 324
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "a685d9f8-f7a1-4f30-965e-5b74d72f0f80",
+      "type": "istar.AndRefinementLink",
+      "source": "169666a5-7b74-4c27-97ac-dd0738061e96",
+      "target": "533648cf-2df9-41f6-873f-93557f7d07c9"
+    },
+    {
+      "id": "50a18b82-2ab6-4cf3-be4a-026324286dec",
+      "type": "istar.AndRefinementLink",
+      "source": "9330e2fd-2664-4a1f-b5be-703450fc14a3",
+      "target": "533648cf-2df9-41f6-873f-93557f7d07c9"
+    },
+    {
+      "id": "6f30a24f-a67f-4ed7-9c6a-bc9a93736298",
+      "type": "istar.AndRefinementLink",
+      "source": "b9cb00fe-8b75-4458-870d-de62f664e5b7",
+      "target": "9330e2fd-2664-4a1f-b5be-703450fc14a3"
+    },
+    {
+      "id": "e4051085-6309-46ce-856a-0288181f8556",
+      "type": "istar.AndRefinementLink",
+      "source": "d4614db3-7e9b-435a-9194-475730a0d986",
+      "target": "b9cb00fe-8b75-4458-870d-de62f664e5b7"
+    },
+    {
+      "id": "a7db733d-8fc8-4f51-832e-6883407ffabc",
+      "type": "istar.AndRefinementLink",
+      "source": "fe2d63b5-404a-4169-bd25-0d9f7fa9e6ec",
+      "target": "b9cb00fe-8b75-4458-870d-de62f664e5b7"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Wed, 26 Jun 2019 19:40:56 GMT",
+  "diagram": {
+    "width": 2806.5,
+    "height": 1172
+  }
+}

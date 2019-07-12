@@ -1,0 +1,85 @@
+{
+  "actors": [
+    {
+      "id": "f1959538-4974-44b3-9ba9-cfdcb0aa682e",
+      "text": "Researcher",
+      "type": "istar.Actor",
+      "x": 408,
+      "y": 140,
+      "nodes": [
+        {
+          "id": "98c86895-91f1-441d-bec2-20054707822f",
+          "text": "G0: Rootgoal [G1;G2]",
+          "type": "istar.Goal",
+          "x": 536,
+          "y": 162,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "9099f86f-c698-46ea-82f7-5d2a7bc85831",
+          "text": "G1: goal1",
+          "type": "istar.Goal",
+          "x": 435,
+          "y": 254
+        },
+        {
+          "id": "f3e6fd09-3727-4405-9755-98c751779dd4",
+          "text": "G2: goal2",
+          "type": "istar.Goal",
+          "x": 603,
+          "y": 254
+        },
+        {
+          "id": "f71f5c25-b288-4f08-8089-19e812bcff4b",
+          "text": "T1: tk1",
+          "type": "istar.Task",
+          "x": 428,
+          "y": 350
+        },
+        {
+          "id": "dd6a1a6c-7bcf-40ec-8698-2bd9b725f475",
+          "text": "T1: tk2",
+          "type": "istar.Task",
+          "x": 610,
+          "y": 356
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "ab79d2d0-9561-457b-9604-bf0498d4c956",
+      "type": "istar.AndRefinementLink",
+      "source": "f71f5c25-b288-4f08-8089-19e812bcff4b",
+      "target": "9099f86f-c698-46ea-82f7-5d2a7bc85831"
+    },
+    {
+      "id": "be2a6f90-412c-417e-82cf-542854484fbd",
+      "type": "istar.AndRefinementLink",
+      "source": "dd6a1a6c-7bcf-40ec-8698-2bd9b725f475",
+      "target": "f3e6fd09-3727-4405-9755-98c751779dd4"
+    },
+    {
+      "id": "5cfc9986-9fca-4dd9-8e3d-950c6c62b12d",
+      "type": "istar.AndRefinementLink",
+      "source": "9099f86f-c698-46ea-82f7-5d2a7bc85831",
+      "target": "98c86895-91f1-441d-bec2-20054707822f"
+    },
+    {
+      "id": "71afbda7-8000-4e84-baa6-9805fa40bceb",
+      "type": "istar.OrRefinementLink",
+      "source": "f3e6fd09-3727-4405-9755-98c751779dd4",
+      "target": "98c86895-91f1-441d-bec2-20054707822f"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Thu, 20 Jun 2019 18:37:22 GMT",
+  "diagram": {
+    "width": 2806.5,
+    "height": 1172
+  }
+}
